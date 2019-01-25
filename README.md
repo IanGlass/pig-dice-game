@@ -124,7 +124,7 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
 });
 ```
 
-The ```nextPlayer()``` function first resets the current player round score to zero and then switches the ```activePlayer`` variable. The current player display is also updated by adding the ```.active``` class.
+The ```nextPlayer()``` function first resets the current player round score to zero and then switches the ```activePlayer``` variable. The current player display is also updated by adding the ```.active``` class.
 
 ```javascript
 // Switch to the next player by resetting the round score for the current player and toggling the player display status
@@ -145,13 +145,11 @@ function nextPlayer() {
 
 #### Hold
 
-Explain how hold and win works from user
+Like the 'Roll' button, the 'Hold' button uses the state variable ```gamePlaying``` to determine if it should execute. The 'Hold' button first updates the current player's total score and then checks if the current player has met the win condition. If the win condition has been met, the current player html block is updated, otherwise the ```nextPlayer()``` function is executed. 
 
 <p align="center">
 <img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Win.png" width="700">
 </p>
-
-Explain code
 
 ```javascript
 document.querySelector('.btn-hold').addEventListener('click', function () {
