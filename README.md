@@ -1,7 +1,7 @@
 # Pig-Dice-Game
 Pig is a simple turn based dice game played between two players. The objective is to be the first player with a cumulative score of 100 or greater. The rules are as follows:
-* The active player can roll the dice as many times as they likes, which increases their round score by the number shown on the dice.
-* The player can push hold which will increase their total score by their round score and change to the next player's turn.
+* The active player can roll the dice as many times as they likes, which increases their round score by the number shown on the dice;
+* The player can push hold which will increase their total score by their round score and change to the next player's turn;
 * However, if the player rolls a 1, they lose their current round score and it becomes the other player's turn.
 
 <p align="center">
@@ -11,7 +11,12 @@ Pig is a simple turn based dice game played between two players. The objective i
 
 #### HTML
 
-Explain HTML
+The board is divided into 6 blocks:
+* A block to contain the name, round score and total score for each of the players (<div class="player-0-panel">);
+* A button to initiate a new game (<button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>);
+* A button to roll the dice of the current player (<button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>);
+* A button to hold the current player's round score and add it to their total score (<button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>);
+* A block displaying the current dice roll (<img src="dice-5.png" alt="Dice" class="dice">).
 
 ```html
 <!DOCTYPE html>
