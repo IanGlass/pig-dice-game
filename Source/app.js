@@ -35,6 +35,8 @@ function newGame() {
     document.querySelector('.player-0-panel').classList.add('active');
     document.querySelector('.player-1-panel').classList.remove('active');
 }
+// Start new game
+document.querySelector('.btn-new').addEventListener('click', newGame);
 
 // Rolling the dice
 document.querySelector('.btn-roll').addEventListener('click', function () {
@@ -55,26 +57,6 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
     }
 });
 
-document.querySelector('.btn-hold').addEventListener('click', function () {
-    if (gamePlaying) {
-        // Update scores
-        scores[activePlayer] += roundScore;
-        document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
-
-        // Winner!
-        if (scores[activePlayer] >= 20) {
-            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-            document.querySelector('.dice').style.display = 'none';
-            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-            // de-activate roll dice and hold buttons
-            gamePlaying = false;
-        } else {
-            nextPlayer();
-        }
-    }
-});
-
 // Switch to the next player by resetting the round score for the current player and toggling the player display status
 function nextPlayer() {
     roundScore = 0;
@@ -90,6 +72,26 @@ function nextPlayer() {
     document.querySelector('.dice').style.display = 'none';
 }
 
-// Start new game
-document.querySelector('.btn-new').addEventListener('click', newGame);
+document.querySelector('.btn-hold').addEventListener('click', function () {
+    if (gamePlaying) {
+        // Update scores
+        scores[activePlayer] += roundScore;
+        document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+
+        // Winner!
+        if (scores[activePlayer] >= 100) {
+            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+            document.querySelector('.dice').style.display = 'none';
+            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+            // de-activate roll dice and hold buttons
+            gamePlaying = false;
+        } else {
+            nextPlayer();
+        }
+    }
+});
+
+
+
 
