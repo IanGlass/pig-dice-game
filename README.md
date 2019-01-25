@@ -54,7 +54,9 @@ Explain HTML
 </p>
 
 
-New game
+#### New Game
+
+Explain code
 
 ```javascript
 function newGame() {
@@ -80,14 +82,20 @@ function newGame() {
     document.querySelector('.player-0-panel').classList.add('active');
     document.querySelector('.player-1-panel').classList.remove('active');
 }
+
 // Start new game
 document.querySelector('.btn-new').addEventListener('click', newGame);
 ```
 
+#### Rolling the dice
 
+Explain functionlity from user
 
+<p align="center">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll_1.png" width="700">
+</p>
 
-Rolling the dice
+Explain code
 
 ```javascript
 // Rolling the dice
@@ -127,7 +135,15 @@ function nextPlayer() {
 
 
 
-Hold button
+#### Hold
+
+Explain how hold and win works from user
+
+<p align="center">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Win.png" width="700">
+</p>
+
+Explain code
 
 ```javascript
 document.querySelector('.btn-hold').addEventListener('click', function () {
