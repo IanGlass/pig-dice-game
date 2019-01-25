@@ -12,11 +12,11 @@ Pig is a simple turn based dice game played between two players. The objective i
 #### HTML
 
 The board is divided into 6 blocks:
-* A block to contain the name, round score and total score for each of the players (<div class="player-0-panel">);
-* A button to initiate a new game (<button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>);
-* A button to roll the dice of the current player (<button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>);
-* A button to hold the current player's round score and add it to their total score (<button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>);
-* A block displaying the current dice roll (<img src="dice-5.png" alt="Dice" class="dice">).
+* A block to contain the name, round score and total score for each of the players (```html<div class="player-0-panel">```);
+* A button to initiate a new game (```html<button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>```);
+* A button to roll the dice of the current player (```html<button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>```);
+* A button to hold the current player's round score and add it to their total score (```html<button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>```);
+* A block displaying the current dice roll (```html<img src="dice-5.png" alt="Dice" class="dice">```).
 
 ```html
 <!DOCTYPE html>
