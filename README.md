@@ -103,7 +103,7 @@ document.querySelector('.btn-new').addEventListener('click', newGame);
 The state variable ```gamePlaying``` is used to deactivate button functionality when a win even occurs. When the 'Roll dice' button is pushed, the current ```dice``` value is generated from a random number generator and scaled to be between 1 and 6. If the number is 1, the game switches to the next player. If the number is not 1, the current round score is increased and the dice image is updated appropriately.
 
 <p align="center">
-<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll_Dice.png" width="700">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll.png" width="700">
 </p>
 
 ```javascript
