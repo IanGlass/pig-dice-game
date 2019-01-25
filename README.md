@@ -16,7 +16,7 @@ The board is divided into 6 blocks:
 * A button to initiate a new game (```<button class="btn-new"><i class="ion-ios-plus-outline"></i>New game</button>```);
 * A button to roll the dice of the current player (```<button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>```);
 * A button to hold the current player's round score and add it to their total score (```<button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>```);
-* A block displaying the current dice roll (```<img src="dice-5.png" alt="Dice" class="dice">```).
+* A block to display each of the two dice and their current roll (```<img src="dice-5.png" alt="Dice" class="dice">```).
 
 ```html
 <!DOCTYPE html>
@@ -54,7 +54,10 @@ The board is divided into 6 blocks:
             <button class="btn-roll"><i class="ion-ios-loop"></i>Roll dice</button>
             <button class="btn-hold"><i class="ion-ios-download-outline"></i>Hold</button>
             
-            <img src="dice-5.png" alt="Dice" class="dice">
+            <img src="dice-5.png" alt="Dice" class="dice dice1">
+            <img src="dice-5.png" alt="Dice" class="dice dice2">
+
+            <input type="text" class="winning-score" placeholder="Winning Score"></input>
         </div>
         
         <script src="app.js"></script>
@@ -74,7 +77,8 @@ function newGame() {
     activePlayer = 0;
     gamePlaying = true;
     // Remove dice
-    document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice1').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 
     // Reset player scores
     document.querySelector('#current-0').textContent = 0;
@@ -90,7 +94,6 @@ function newGame() {
     document.querySelector('.player-0-panel').classList.add('active');
     document.querySelector('.player-1-panel').classList.remove('active');
 }
-
 // Start new game
 document.querySelector('.btn-new').addEventListener('click', newGame);
 ```
@@ -108,17 +111,20 @@ The state variable ```gamePlaying``` is used to deactivate button functionality 
 document.querySelector('.btn-roll').addEventListener('click', function () {
     if (gamePlaying) {
         // Randomly generate number between 1 - 6
-        dice = Math.floor(Math.random() * 6 , 1) + 1;
+        dice1 = Math.floor(Math.random() * 6 , 1) + 1;
+        dice2 = Math.floor(Math.random() * 6 , 1) + 1;
 
         // Show dice if first call since newGame()
-        document.querySelector('.dice').style.display = 'block';
-        if (dice === 1) {
+        document.querySelector('.dice1').style.display = 'block';
+        document.querySelector('.dice2').style.display = 'block';
+        if ((dice1 === 1) || (dice2 === 1)) {
             nextPlayer();
         } else {
             // Update the player round score
-            roundScore += dice;
+            roundScore += dice1 + dice2;
             document.querySelector("#current-" + activePlayer).textContent = roundScore;
-            document.querySelector('.dice').src = 'dice-' + dice + '.png';
+            document.querySelector('.dice1').src = 'dice-' + dice1 + '.png';
+            document.querySelector('.dice2').src = 'dice-' + dice2 + '.png';
         }
     }
 });
@@ -139,13 +145,14 @@ function nextPlayer() {
     // Add 'active' class to other player
     document.querySelector('.player-' + activePlayer + '-panel').classList.toggle('active');
     // Hide dice
-    document.querySelector('.dice').style.display = 'none';
+    document.querySelector('.dice1').style.display = 'none';
+    document.querySelector('.dice2').style.display = 'none';
 }
 ```
 
 #### Hold
 
-Like the 'Roll' button, the 'Hold' button uses the state variable ```gamePlaying``` to determine if it should execute. The 'Hold' button first updates the current player's total score and then checks if the current player has met the win condition. If the win condition has been met, the current player html block is updated, otherwise the ```nextPlayer()``` function is executed. 
+Like the 'Roll' button, the 'Hold' button uses the state variable ```gamePlaying``` to determine if it should execute. If the ```winningScore``` has been set, the 'Hold' button first updates the current player's total score and then checks if the current player has met the win condition. If the win condition has been met, the current player html block is updated, otherwise the ```nextPlayer()``` function is executed. If the ```winningScore``` has not been set, an alert is triggered instructing the players to enter a ```winningScore```.
 
 <p align="center">
 <img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Win.png" width="700">
@@ -154,20 +161,28 @@ Like the 'Roll' button, the 'Hold' button uses the state variable ```gamePlaying
 ```javascript
 document.querySelector('.btn-hold').addEventListener('click', function () {
     if (gamePlaying) {
-        // Update scores
-        scores[activePlayer] += roundScore;
-        document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+        var winningScore = document.querySelector('.winning-score').value;
 
-        // Winner!
-        if (scores[activePlayer] >= 100) {
-            document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
-            document.querySelector('.dice').style.display = 'none';
-            document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
-            document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
-            // de-activate roll dice and hold buttons
-            gamePlaying = false;
+        // Make sure winning score is set
+        if (winningScore) {
+            // Update scores
+            scores[activePlayer] += roundScore;
+            document.querySelector("#score-" + activePlayer).textContent = scores[activePlayer];
+
+            // Winner!
+            if (scores[activePlayer] >= winningScore) {
+                document.querySelector('#name-' + activePlayer).textContent = 'Winner!';
+                document.querySelector('.dice1').style.display = 'none';
+                document.querySelector('.dice2').style.display = 'none';
+                document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+                document.querySelector('.player-' + activePlayer + '-panel').classList.remove('active');
+                // de-activate roll dice and hold buttons
+                gamePlaying = false;
+            } else {
+                nextPlayer();
+            }
         } else {
-            nextPlayer();
+            alert("Please enter the winning score");
         }
     }
 });
