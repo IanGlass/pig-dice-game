@@ -70,6 +70,20 @@ body {
     margin-bottom: 130px;
 }
 
+.winning-score {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 522px;
+    color: #555;
+    font-size: 18px;
+    font-family: 'Lato';
+    text-align: center;
+    padding: 10px;
+    width: 190px;
+    text-transform: uppercase;
+}
+
 .active { background-color: #f7f7f7; }
 .active .player-name { font-weight: 300; }
 
@@ -143,11 +157,18 @@ i {
 
 .dice {
     position: absolute;
-    left: 50%;
     top: 178px;
     transform: translateX(-50%);
     height: 100px;
     box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.10);
+}
+
+.dice1 {
+    left: 44%;
+}
+
+.dice2 {
+    left: 56%;
 }
 
 .winner { background-color: #f7f7f7; }
