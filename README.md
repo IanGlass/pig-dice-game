@@ -122,9 +122,11 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         }
     }
 });
+```
 
 The ```nextPlayer()``` function first resets the current player round score to zero and then switches the ```activePlayer`` variable. The current player display is also updated by adding the ```.active``` class.
 
+```javascript
 // Switch to the next player by resetting the round score for the current player and toggling the player display status
 function nextPlayer() {
     roundScore = 0;
@@ -140,8 +142,6 @@ function nextPlayer() {
     document.querySelector('.dice').style.display = 'none';
 }
 ```
-
-
 
 #### Hold
 
