@@ -1,8 +1,13 @@
 # Pig-Dice-Game
-Pig is a simple turn based dice game played between two players. The objective is to get to be the first player with a cumulative score of 100 or greater. The rules are as follows:
+Pig is a simple turn based dice game played between two players. The objective is to be the first player with a cumulative score of 100 or greater. The rules are as follows:
 * The active player can roll the dice as many times as they likes, which increases their round score by the number shown on the dice.
 * The player can push hold which will increase their total score by their round score and change to the next player's turn.
 * However, if the player rolls a 1, they lose their current round score and it becomes the other player's turn.
+
+<p align="center">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Game_Start.png" width="700">
+</p>
+
 
 #### HTML
 
@@ -51,11 +56,6 @@ Explain HTML
     </body>
 </html>
 ```
-
-<p align="center">
-<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Game_Start.png" width="700">
-</p>
-
 
 #### New Game
 
