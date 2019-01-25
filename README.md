@@ -92,7 +92,7 @@ document.querySelector('.btn-new').addEventListener('click', newGame);
 Explain functionlity from user
 
 <p align="center">
-<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll_1.png" width="700">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll_Dice.png" width="700">
 </p>
 
 Explain code
