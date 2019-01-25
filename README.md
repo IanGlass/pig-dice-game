@@ -49,7 +49,7 @@ Explain HTML
 </html>
 ```
 <p align="center">
-<img src="https://github.com/IanGlass/Haptic-Feedback-Rangefinder/blob/master/Game_Start.jpg" width="700">
+<img src="https://github.com/IanGlass/Haptic-Feedback-Rangefinder/blob/master/Game_Start.png" width="700">
 </p>
 
 
