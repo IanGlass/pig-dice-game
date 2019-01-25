@@ -64,7 +64,7 @@ The board is divided into 6 blocks:
 
 #### New Game
 
-Explain code
+The ```newGame()``` function resets the global scores (```scores```) for both players and the round score. It also sets the current player to player 1, removes the dice from displaying. This function is called when the script starts up and when the 'New game' button is pushed.
 
 ```javascript
 function newGame() {
@@ -97,13 +97,11 @@ document.querySelector('.btn-new').addEventListener('click', newGame);
 
 #### Rolling the dice
 
-Explain functionlity from user
+The state variable ```gamePlaying``` is used to deactivate button functionality when a win even occurs. When the 'Roll dice' button is pushed, the current ```dice``` value is generated from a random number generator and scaled to be between 1 and 6. If the number is 1, the game switches to the next player. If the number is not 1, the current round score is increased and the dice image is updated appropriately.
 
 <p align="center">
 <img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Roll_Dice.png" width="700">
 </p>
-
-Explain code
 
 ```javascript
 // Rolling the dice
@@ -124,6 +122,8 @@ document.querySelector('.btn-roll').addEventListener('click', function () {
         }
     }
 });
+
+The ```nextPlayer()``` function first resets the current player round score to zero and then switches the ```activePlayer`` variable. The current player display is also updated by adding the ```.active``` class.
 
 // Switch to the next player by resetting the round score for the current player and toggling the player display status
 function nextPlayer() {
