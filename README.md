@@ -48,8 +48,9 @@ Explain HTML
     </body>
 </html>
 ```
+
 <p align="center">
-<img src="https://github.com/IanGlass/Pig-Dice_Game/blob/master/Game_Start.png" width="700">
+<img src="https://github.com/IanGlass/Pig-Dice-Game/blob/master/Game_Start.png" width="700">
 </p>
 
 
