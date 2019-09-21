@@ -13,7 +13,8 @@ https://pig-dice.herokuapp.com/
 </p>
 
 
-#### HTML
+<details>
+<summary>HTML</summary>
 
 The board is divided into 6 blocks:
 * A block to contain the name, round score and total score for each of the players (```<div class="player-0-panel">```). The ```.active``` class is used to display the current player with a red dot and a grey background;
@@ -69,7 +70,10 @@ The board is divided into 6 blocks:
 </html>
 ```
 
-#### New Game
+</details>
+
+<details>
+<summary>New Game</summary>
 
 The ```newGame()``` function resets the global scores (```scores```) for both players and the round score. It also sets the current player to player 1, removes the dice from displaying. This function is called when the script starts up and when the 'New game' button is pushed.
 
@@ -102,7 +106,10 @@ function newGame() {
 document.querySelector('.btn-new').addEventListener('click', newGame);
 ```
 
-#### Rolling the dice
+</details>
+
+<details>
+<summary>Rolling the dice</summary>
 
 The state variable ```gamePlaying``` is used to deactivate button functionality when a win even occurs. When the 'Roll dice' button is pushed, the current ```dice``` value is generated from a random number generator and scaled to be between 1 and 6. If the number is 1, the game switches to the next player. If the number is not 1, the current round score is increased and the dice image is updated appropriately.
 
@@ -154,7 +161,10 @@ function nextPlayer() {
 }
 ```
 
-#### Hold
+</details>
+
+<details>
+<summary>Hold</summary>
 
 Like the 'Roll' button, the 'Hold' button uses the state variable ```gamePlaying``` to determine if it should execute. If the ```winningScore``` has been set, the 'Hold' button first updates the current player's total score and then checks if the current player has met the win condition. If the win condition has been met, the current player html block is updated, otherwise the ```nextPlayer()``` function is executed. If the ```winningScore``` has not been set, an alert is triggered instructing the players to enter a ```winningScore```.
 
@@ -192,16 +202,5 @@ document.querySelector('.btn-hold').addEventListener('click', function () {
 });
 ```
 
-
-
-
-
-
-
-
-
-
-
-
-
+</details>
 
